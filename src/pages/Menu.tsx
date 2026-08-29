@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Leaf } from 'lucide-react';
-import { categories, menuItems, MenuItem } from '../data/mockData';
+import { categories, menuItems } from '../data/mockData';
+import type { MenuItem } from '../data/mockData';
 
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState("All Items");
