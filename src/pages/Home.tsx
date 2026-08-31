@@ -38,9 +38,6 @@ export const Home = () => {
               <Link to="/menu" className="btn-primary" style={{ textDecoration: 'none', padding: '1rem 2rem' }}>
                 Explore Our Menu
               </Link>
-              <Link to="/reservations" className="btn-secondary" style={{ textDecoration: 'none', padding: '1rem 2rem' }}>
-                Reserve a Table
-              </Link>
             </div>
             
             <div style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>

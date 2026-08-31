@@ -66,7 +66,10 @@ export const Menu = () => {
                   </div>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem', flex: 1 }}>{item.description}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    {item.isVegetarian ? <span style={{ color: '#2ecc71', display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.8rem' }}><Leaf size={14} /> Veg</span> : <span></span>}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                      {item.isVegetarian ? <span style={{ color: '#2ecc71', display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.8rem' }}><Leaf size={14} /> Veg</span> : null}
+                      {item.protein && <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 500 }}>Protein: {item.protein}g</span>}
+                    </div>
                     <button className="btn-secondary" style={{ padding: '0.4rem 1rem', fontSize: '0.8rem' }}>View Details</button>
                   </div>
                 </div>
@@ -90,11 +93,18 @@ export const Menu = () => {
                 <h2 className="font-serif" style={{ fontSize: '2rem', marginTop: '1rem', color: 'var(--accent-gold)' }}>{selectedItem.name}</h2>
                 <span style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1.5rem' }}>₹{selectedItem.price}</span>
                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, flex: 1 }}>{selectedItem.description}</p>
-                {selectedItem.isVegetarian && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#2ecc71', marginTop: '1rem' }}>
-                    <Leaf size={18} /> <span>Vegetarian</span>
-                  </div>
-                )}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '1rem' }}>
+                  {selectedItem.isVegetarian && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#2ecc71' }}>
+                      <Leaf size={18} /> <span>Vegetarian</span>
+                    </div>
+                  )}
+                  {selectedItem.protein && (
+                    <div style={{ color: 'var(--text-primary)', fontWeight: 500, fontSize: '1.1rem' }}>
+                      Protein: {selectedItem.protein}g
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
             <style>{`

@@ -65,9 +65,6 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link to="/reservations" className="btn-primary" style={{ textDecoration: 'none', padding: '0.6rem 1.25rem', fontSize: '0.9rem', letterSpacing: '1px' }}>
-            Reserve a Table
-          </Link>
         </nav>
 
         <button 
@@ -92,9 +89,6 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link to="/reservations" onClick={() => setMobileMenuOpen(false)} className="btn-primary" style={{ marginTop: '1rem', justifyContent: 'center', textDecoration: 'none' }}>
-            Reserve a Table
-          </Link>
         </div>
       )}
 
