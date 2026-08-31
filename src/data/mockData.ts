@@ -20,6 +20,9 @@ export const categories = [
   "Sandwiches & Salads",
   "Fresh Juices & Cocktails",
   "Chats"
+];
+
+export const menuItems: MenuItem[] = [
   // CHATS
   {
     id: "c1",
@@ -80,10 +83,7 @@ export const categories = [
     image: "/images/papdi_chaat.png",
     isVegetarian: true,
     protein: 6
-  }
-];
-
-export const menuItems: MenuItem[] = [
+  },
   // STARTERS
   {
     id: "s1",
