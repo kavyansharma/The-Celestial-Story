@@ -16,7 +16,8 @@ export const Home = () => {
         alignItems: 'center', 
         position: 'relative',
         paddingTop: '80px',
-        background: 'linear-gradient(rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.9)), url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80") center/cover no-repeat'
+        background: 'var(--hero-overlay), url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80") center/cover no-repeat',
+        transition: 'background var(--transition-normal)'
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <motion.div 

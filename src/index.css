@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
-:root {
+:root, :root[data-theme="light"] {
   /* Colors */
   --bg-primary: #0b0f19; /* deep midnight space */
   --bg-secondary: #121826; /* slightly lighter night sky */
   --bg-card: #182030;
+  --bg-glass: rgba(18, 24, 38, 0.6);
+  --nav-bg: rgba(11, 15, 25, 0.95);
+  --hero-overlay: linear-gradient(rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.9));
   
   --text-primary: #f8f9fa; /* starlight white */
   --text-secondary: #a3b8cc; /* muted blue/gray */
@@ -19,6 +22,32 @@
   
   --border-subtle: rgba(163, 184, 204, 0.15);
   --border-gold: rgba(212, 175, 55, 0.4);
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #030406; 
+  --bg-secondary: #080a0f; 
+  --bg-card: #0a0d14;
+  --bg-glass: rgba(10, 13, 20, 0.6);
+  --nav-bg: rgba(3, 4, 6, 0.95);
+  --hero-overlay: linear-gradient(rgba(3, 4, 6, 0.7), rgba(3, 4, 6, 0.9));
+  
+  --text-primary: #e2e8f0; 
+  --text-secondary: #718096;
+  
+  --accent-gold: #d4af37; 
+  --accent-gold-hover: #f1c40f;
+  
+  --accent-moonlight: #cbd5e1;
+  
+  --glow-gold: 0 0 15px rgba(212, 175, 55, 0.2);
+  --glow-moon: 0 0 20px rgba(203, 213, 225, 0.1);
+  
+  --border-subtle: rgba(163, 184, 204, 0.08);
+  --border-gold: rgba(212, 175, 55, 0.3);
+}
+
+:root {
   
   /* Typography */
   --font-heading: 'Outfit', 'Inter', sans-serif;
@@ -56,6 +85,7 @@ body {
     radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 85% 30%, rgba(226, 232, 240, 0.04) 0%, transparent 50%);
   background-attachment: fixed;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -103,11 +133,12 @@ button {
 }
 
 .glass-panel {
-  background: rgba(18, 24, 38, 0.6);
+  background: var(--bg-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
 /* Base interactive */

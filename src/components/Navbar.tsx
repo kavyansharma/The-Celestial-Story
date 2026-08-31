@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Moon } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useTheme } from '../hooks/useTheme';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +33,7 @@ export const Navbar = () => {
       width: '100%',
       zIndex: 100,
       transition: 'var(--transition-normal)',
-      background: scrolled ? 'rgba(11, 15, 25, 0.95)' : 'transparent',
+      background: scrolled ? 'var(--nav-bg)' : 'transparent',
       backdropFilter: scrolled ? 'blur(16px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--border-subtle)' : '1px solid transparent',
       padding: '1rem 0'
@@ -65,15 +67,34 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <button 
+            onClick={toggleTheme} 
+            style={{ color: 'var(--text-primary)', transition: 'color var(--transition-fast)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '0.5rem' }}
+            aria-label="Toggle theme"
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-gold)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+          >
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
         </nav>
 
-        <button 
-          className="mobile-menu-btn"
-          style={{ display: 'none', color: 'var(--text-primary)' }}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }} className="mobile-actions">
+          <button 
+            className="mobile-actions-btn"
+            style={{ display: 'none', color: 'var(--text-primary)' }}
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
+          </button>
+          <button 
+            className="mobile-actions-btn"
+            style={{ display: 'none', color: 'var(--text-primary)' }}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Menu */}
@@ -97,7 +118,7 @@ export const Navbar = () => {
           .desktop-nav { display: flex !important; }
         }
         @media (max-width: 991px) {
-          .mobile-menu-btn { display: block !important; }
+          .mobile-actions-btn { display: block !important; }
         }
       `}</style>
     </header>
