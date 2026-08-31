@@ -27,7 +27,7 @@ export const categories = [
     description: "Crispy hollow puris filled with spicy and tangy water, potatoes, and chickpeas.",
     price: 99,
     category: "Chats",
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+    image: "/images/pani_puri.png",
     isVegetarian: true,
     protein: 4
   },
@@ -37,7 +37,7 @@ export const categories = [
     description: "Puris stuffed with potatoes, chutneys, and topped with sweet yogurt and sev.",
     price: 129,
     category: "Chats",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+    image: "/images/dahi_puri.png",
     isVegetarian: true,
     protein: 7
   },
@@ -47,7 +47,7 @@ export const categories = [
     description: "Flat crispy puris topped with diced potatoes, onions, three chutneys, and generous sev.",
     price: 119,
     category: "Chats",
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80",
+    image: "/images/sev_puri.png",
     isVegetarian: true,
     protein: 5
   },
@@ -57,7 +57,7 @@ export const categories = [
     description: "A savory snack made with puffed rice, chopped vegetables, and a tangy tamarind sauce.",
     price: 109,
     category: "Chats",
-    image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80",
+    image: "/images/bhel_puri.png",
     isVegetarian: true,
     protein: 6
   },
@@ -67,7 +67,7 @@ export const categories = [
     description: "Crispy potato patties topped with yogurt, chutneys, and spices.",
     price: 139,
     category: "Chats",
-    image: "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=800&q=80",
+    image: "/images/aloo_tikki_chaat.png",
     isVegetarian: true,
     protein: 8
   },
@@ -77,7 +77,7 @@ export const categories = [
     description: "Crispy wafers garnished with boiled potatoes, chickpeas, yogurt, and chutneys.",
     price: 129,
     category: "Chats",
-    image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80",
+    image: "/images/papdi_chaat.png",
     isVegetarian: true,
     protein: 6
   }
