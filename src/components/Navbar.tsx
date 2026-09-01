@@ -68,11 +68,11 @@ export const Navbar = () => {
             </Link>
           ))}
           <button 
+            className="theme-toggle-btn"
             onClick={toggleTheme} 
-            style={{ color: 'var(--text-primary)', transition: 'color var(--transition-fast)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '0.5rem' }}
-            aria-label="Toggle theme"
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-gold)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+            style={{ marginLeft: '0.5rem' }}
+            aria-label={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+            aria-pressed={theme === 'dark'}
           >
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
@@ -80,10 +80,11 @@ export const Navbar = () => {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }} className="mobile-actions">
           <button 
-            className="mobile-actions-btn"
-            style={{ display: 'none', color: 'var(--text-primary)' }}
+            className="mobile-actions-btn theme-toggle-btn"
+            style={{ display: 'none' }}
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+            aria-pressed={theme === 'dark'}
           >
             {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
           </button>

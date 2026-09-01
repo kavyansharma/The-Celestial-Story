@@ -22,29 +22,35 @@
   
   --border-subtle: rgba(163, 184, 204, 0.15);
   --border-gold: rgba(212, 175, 55, 0.4);
+  
+  --bg-gradient-gold: rgba(212, 175, 55, 0.03);
+  --bg-gradient-moon: rgba(226, 232, 240, 0.04);
 }
 
 :root[data-theme="dark"] {
-  --bg-primary: #030406; 
-  --bg-secondary: #080a0f; 
-  --bg-card: #0a0d14;
-  --bg-glass: rgba(10, 13, 20, 0.6);
-  --nav-bg: rgba(3, 4, 6, 0.95);
-  --hero-overlay: linear-gradient(rgba(3, 4, 6, 0.7), rgba(3, 4, 6, 0.9));
+  --bg-primary: #0f0c08; 
+  --bg-secondary: #1a1612; 
+  --bg-card: #201b17;
+  --bg-glass: rgba(26, 22, 18, 0.6);
+  --nav-bg: rgba(15, 12, 8, 0.95);
+  --hero-overlay: linear-gradient(rgba(15, 12, 8, 0.7), rgba(15, 12, 8, 0.9));
   
-  --text-primary: #e2e8f0; 
-  --text-secondary: #718096;
+  --text-primary: #f5f0e6; 
+  --text-secondary: #b3a89e;
   
   --accent-gold: #d4af37; 
   --accent-gold-hover: #f1c40f;
   
-  --accent-moonlight: #cbd5e1;
+  --accent-moonlight: #e2d5c3;
   
   --glow-gold: 0 0 15px rgba(212, 175, 55, 0.2);
-  --glow-moon: 0 0 20px rgba(203, 213, 225, 0.1);
+  --glow-moon: 0 0 20px rgba(226, 213, 195, 0.1);
   
-  --border-subtle: rgba(163, 184, 204, 0.08);
+  --border-subtle: rgba(179, 168, 158, 0.15);
   --border-gold: rgba(212, 175, 55, 0.3);
+
+  --bg-gradient-gold: rgba(212, 175, 55, 0.02);
+  --bg-gradient-moon: rgba(226, 213, 195, 0.03);
 }
 
 :root {
@@ -82,8 +88,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(226, 232, 240, 0.04) 0%, transparent 50%);
+    radial-gradient(circle at 15% 50%, var(--bg-gradient-gold) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, var(--bg-gradient-moon) 0%, transparent 50%);
   background-attachment: fixed;
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
@@ -175,6 +181,26 @@ button {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
   background-color: rgba(212, 175, 55, 0.05);
+}
+
+.theme-toggle-btn {
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  padding: 0.5rem;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
 }
 
 /* Scrollbar */
