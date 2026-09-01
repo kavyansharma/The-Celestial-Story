@@ -2,29 +2,29 @@
 
 :root, :root[data-theme="light"] {
   /* Colors */
-  --bg-primary: #0b0f19; /* deep midnight space */
-  --bg-secondary: #121826; /* slightly lighter night sky */
-  --bg-card: #182030;
-  --bg-glass: rgba(18, 24, 38, 0.6);
-  --nav-bg: rgba(11, 15, 25, 0.95);
-  --hero-overlay: linear-gradient(rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.9));
+  --bg-primary: #ffffff; 
+  --bg-secondary: #f8f9fa; 
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --hero-overlay: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9));
   
-  --text-primary: #f8f9fa; /* starlight white */
-  --text-secondary: #a3b8cc; /* muted blue/gray */
+  --text-primary: #111827; 
+  --text-secondary: #4b5563; 
   
-  --accent-gold: #d4af37; /* celestial gold */
-  --accent-gold-hover: #f1c40f;
+  --accent-gold: #d4af37; 
+  --accent-gold-hover: #b8972e;
   
-  --accent-moonlight: #e2e8f0; /* pale silver/blue */
+  --accent-moonlight: #e2e8f0; 
   
-  --glow-gold: 0 0 15px rgba(212, 175, 55, 0.3);
-  --glow-moon: 0 0 20px rgba(226, 232, 240, 0.15);
+  --glow-gold: 0 4px 15px rgba(212, 175, 55, 0.15);
+  --glow-moon: 0 4px 20px rgba(0, 0, 0, 0.05);
   
-  --border-subtle: rgba(163, 184, 204, 0.15);
+  --border-subtle: rgba(0, 0, 0, 0.08);
   --border-gold: rgba(212, 175, 55, 0.4);
   
   --bg-gradient-gold: rgba(212, 175, 55, 0.03);
-  --bg-gradient-moon: rgba(226, 232, 240, 0.04);
+  --bg-gradient-moon: rgba(0, 0, 0, 0.02);
 }
 
 :root[data-theme="dark"] {
