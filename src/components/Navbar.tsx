@@ -39,11 +39,8 @@ export const Navbar = () => {
       padding: '1rem 0'
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-          <Moon size={28} color="var(--accent-gold)" />
-          <span className="font-serif" style={{ fontSize: '1.25rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
-            The Celestial Story
-          </span>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img src="/images/logo.jpg" alt="The Celestial Story" style={{ height: '3.5rem', width: 'auto', objectFit: 'contain', maxHeight: '100%' }} />
         </Link>
         
         {/* Desktop Nav */}

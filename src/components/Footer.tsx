@@ -1,4 +1,4 @@
-import { Moon } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
 const InstagramIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>);
@@ -12,9 +12,8 @@ export const Footer = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
           
           <div>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-              <Moon size={28} color="var(--accent-gold)" />
-              <span className="font-serif" style={{ fontSize: '1.5rem', fontWeight: 600 }}>The Celestial Story</span>
+            <Link to="/" style={{ display: 'inline-flex', marginBottom: '1.5rem' }}>
+              <img src="/images/logo.jpg" alt="The Celestial Story Logo" style={{ height: '4rem', width: 'auto', objectFit: 'contain' }} />
             </Link>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
               Where coffee meets the cosmos. Every cup tells a story of distant stars and rich, earthly flavors.
