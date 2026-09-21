@@ -1,14 +1,27 @@
+export interface MenuItemSizes {
+  M: number;
+  L: number;
+}
+
+export interface MenuItemVariants {
+  veg: number;
+  nonVeg: number;
+}
+
 export interface MenuItem {
   id: string;
   name: string;
-  description: string;
-  price: number;
   category: string;
-  image: string;
+  price: number;
+  sizes?: MenuItemSizes;
+  variants?: MenuItemVariants;
+  dietaryType?: 'veg' | 'non-veg' | 'both';
   isVegetarian?: boolean;
-  ingredients?: string[];
+  isBothVegNonVeg?: boolean;
+  protein?: number | string;
   isSignature?: boolean;
-  protein?: number;
+  image?: string;
+  description?: string;
 }
 
 export const categories = [
@@ -18,282 +31,224 @@ export const categories = [
   "Pastas",
   "Burritos & Fried Chicken",
   "Sandwiches & Salads",
-  "Fresh Juices & Cocktails",
-  "Chats"
+  "Protein Shakes",
+  "Hot Beverages",
+  "Fresh Juices & Cocktails"
 ];
 
+export const nutritionOverview = {
+  title: "Nutrition at The Celestial Story",
+  subtitle: "Balanced diet & high-protein meals crafted with Italian and Mexican fusion inspirations.",
+  metrics: [
+    { label: "High Protein", value: "50g – 87g", detail: "Per Meal (Main Course)" },
+    { label: "Calorie Conscious", value: "350 – 650 kcal", detail: "Per Meal" },
+    { label: "Macro Friendly", value: "Low Carb & Low Fat", detail: "Wholesome Preparation" },
+    { label: "Endure Fusion", value: "Italian & Mexican", detail: "Balanced Diet Philosophy" }
+  ]
+};
+
 export const menuItems: MenuItem[] = [
-  // CHATS
+  // MAIN COURSE / STARTERS / BOWLS / PASTAS / BURRITOS (Page 1 of PDF)
   {
-    id: "c1",
-    name: "Pani Puri",
-    description: "Crispy hollow puris filled with spicy and tangy water, potatoes, and chickpeas.",
-    price: 99,
-    category: "Chats",
-    image: "/images/pani_puri.png",
-    isVegetarian: true,
-    protein: 4
-  },
-  {
-    id: "c2",
-    name: "Dahi Puri",
-    description: "Puris stuffed with potatoes, chutneys, and topped with sweet yogurt and sev.",
-    price: 129,
-    category: "Chats",
-    image: "/images/dahi_puri.png",
-    isVegetarian: true,
-    protein: 7
-  },
-  {
-    id: "c3",
-    name: "Sev Puri",
-    description: "Flat crispy puris topped with diced potatoes, onions, three chutneys, and generous sev.",
-    price: 119,
-    category: "Chats",
-    image: "/images/sev_puri.png",
-    isVegetarian: true,
-    protein: 5
-  },
-  {
-    id: "c4",
-    name: "Bhel Puri",
-    description: "A savory snack made with puffed rice, chopped vegetables, and a tangy tamarind sauce.",
-    price: 109,
-    category: "Chats",
-    image: "/images/bhel_puri.png",
-    isVegetarian: true,
-    protein: 6
-  },
-  {
-    id: "c5",
-    name: "Aloo Tikki Chaat",
-    description: "Crispy potato patties topped with yogurt, chutneys, and spices.",
-    price: 139,
-    category: "Chats",
-    image: "/images/aloo_tikki_chaat.png",
-    isVegetarian: true,
-    protein: 8
-  },
-  {
-    id: "c6",
-    name: "Papdi Chaat",
-    description: "Crispy wafers garnished with boiled potatoes, chickpeas, yogurt, and chutneys.",
-    price: 129,
-    category: "Chats",
-    image: "/images/papdi_chaat.png",
-    isVegetarian: true,
-    protein: 6
-  },
-  // STARTERS
-  {
-    id: "s1",
-    name: "Spicy Seduction Patties",
-    description: "Description coming soon.",
-    price: 179,
-    protein: 15,
+    id: "mc-1",
+    name: "THE DADDY'S IFFA CHICKEN",
     category: "Starters",
-    image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80",
-    isSignature: true,
+    price: 149,
+    dietaryType: "non-veg",
+    isVegetarian: false
   },
   {
-    id: "s2",
-    name: "The Red Flag Wrap",
-    description: "Description coming soon.",
-    price: 209,
-    protein: 15,
+    id: "mc-2",
+    name: "THE SPICY SEDUCTION PATTIES",
     category: "Starters",
-    image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
+    price: 169,
+    dietaryType: "non-veg",
+    isVegetarian: false,
+    isSignature: true
   },
   {
-    id: "s3",
-    name: "Golden Hour Chicken",
-    description: "Description coming soon.",
+    id: "mc-3",
+    name: "THE RED FLAG WRAP",
+    category: "Starters",
     price: 189,
-    protein: 15,
-    category: "Starters",
-    image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80",
+    dietaryType: "non-veg",
+    isVegetarian: false
   },
   {
-    id: "s4",
-    name: "Daddy's Fav Fifa Cheesy",
-    description: "Description coming soon.",
+    id: "mc-4",
+    name: "THE CREAM JOB",
+    category: "Rice Bowls",
+    price: 169,
+    dietaryType: "non-veg",
+    isVegetarian: false
+  },
+  {
+    id: "mc-5",
+    name: "THE DYNAMITE LUXE CHICKY FRIES",
+    category: "Starters",
+    price: 169,
+    dietaryType: "non-veg",
+    isVegetarian: false
+  },
+  {
+    id: "mc-6",
+    name: "THE SMASH ME TACOS",
+    category: "Starters",
     price: 189,
-    protein: 15,
-    category: "Starters",
-    image: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=800&q=80",
+    dietaryType: "non-veg",
+    isVegetarian: false
   },
   {
-    id: "s5",
-    name: "Smash Me Tacos",
-    description: "Description coming soon.",
-    price: 209,
-    protein: 15,
-    category: "Starters",
-    image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "s6",
-    name: "Dynamite Luxe Chick Fries",
-    description: "Description coming soon.",
-    price: 239,
-    protein: 15,
-    category: "Starters",
-    image: "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "s7",
-    name: "Team Temp Paneer Roll",
-    description: "Description coming soon.",
-    price: 179,
-    protein: 15,
-    category: "Starters",
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
-    isVegetarian: true,
-  },
-  {
-    id: "s8",
-    name: "Midnight Seoul Chicky Roll",
-    description: "Description coming soon.",
-    price: 229,
-    protein: 15,
-    category: "Starters",
-    image: "https://images.unsplash.com/photo-1578330752538-23ebce1b2fb0?auto=format&fit=crop&w=800&q=80",
-  },
-
-  // RICE BOWLS
-  {
-    id: "r1",
-    name: "The Creamy Job",
-    description: "Description coming soon.",
-    price: 179,
-    protein: 25,
-    category: "Rice Bowls",
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "r2",
-    name: "Velvet Drip Paneer Bowl",
-    description: "Description coming soon.",
-    price: 219,
-    protein: 25,
-    category: "Rice Bowls",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
-    isVegetarian: true,
-    isSignature: true,
-  },
-  {
-    id: "r3",
-    name: "Sinful Mac and Cluck Bowl",
-    description: "Description coming soon.",
-    price: 239,
-    protein: 25,
-    category: "Rice Bowls",
-    image: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?auto=format&fit=crop&w=800&q=80",
-  },
-
-  // PASTAS
-  {
-    id: "p1",
-    name: "Naughty Honey Pasta",
-    description: "Description coming soon.",
-    price: 189,
-    protein: 12,
+    id: "mc-7",
+    name: "THE NAUGHTY HONEY PASTO",
     category: "Pastas",
-    image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80",
-  },
-
-  // BURRITOS & FRIED CHICKEN
-  {
-    id: "b1",
-    name: "Creamy Climax Burrito",
-    description: "Description coming soon.",
-    price: 229,
-    protein: 30,
-    category: "Burritos & Fried Chicken",
-    image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
-    isSignature: true,
-  },
-  {
-    id: "b2",
-    name: "Golden Hour Chicken",
-    description: "Description coming soon.",
     price: 189,
-    protein: 30,
+    dietaryType: "non-veg",
+    isVegetarian: false
+  },
+  {
+    id: "mc-8",
+    name: "THE PANEER ARTISIAN BREAD",
+    category: "Starters",
+    price: 179,
+    dietaryType: "veg",
+    isVegetarian: true
+  },
+  {
+    id: "mc-9",
+    name: "THE CREAMY CLIMAX BURRITO",
     category: "Burritos & Fried Chicken",
-    image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "b3",
-    name: "Poppy Chicky Katsu",
-    description: "Description coming soon.",
-    price: 219,
-    protein: 30,
-    category: "Burritos & Fried Chicken",
-    image: "https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?auto=format&fit=crop&w=800&q=80",
-  },
-
-  // SANDWICHES & SALADS
-  {
-    id: "ss1",
-    name: "Melted Muscle Salad (Grill)",
-    description: "Description coming soon.",
-    price: 240,
-    protein: 20,
-    category: "Sandwiches & Salads",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ss2",
-    name: "Smokey Peppy Crush",
-    description: "Description coming soon.",
-    price: 240,
-    protein: 20,
-    category: "Sandwiches & Salads",
-    image: "https://images.unsplash.com/photo-1550507992-eb63ffee0224?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ss3",
-    name: "The Corn Affair",
-    description: "Description coming soon.",
-    price: 200,
-    protein: 20,
-    category: "Sandwiches & Salads",
-    image: "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ss4",
-    name: "The Exotic Salad",
-    description: "Description coming soon.",
-    price: 200,
-    protein: 20,
-    category: "Sandwiches & Salads",
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ss5",
-    name: "Pita Heatwave Salad",
-    description: "Description coming soon.",
     price: 199,
-    protein: 20,
-    category: "Sandwiches & Salads",
-    image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80",
+    dietaryType: "non-veg",
+    isVegetarian: false,
+    isSignature: true
   },
   {
-    id: "ss6",
-    name: "Spicy Temptation Sandwich",
-    description: "Description coming soon.",
+    id: "mc-10",
+    name: "THE SINFULL MAC & CLUCKBOWL",
+    category: "Rice Bowls",
+    price: 199,
+    dietaryType: "non-veg",
+    isVegetarian: false
+  },
+  {
+    id: "mc-11",
+    name: "THE POPPY CHICKY KATSU",
+    category: "Burritos & Fried Chicken",
+    price: 219,
+    dietaryType: "non-veg",
+    isVegetarian: false,
+    isSignature: true
+  },
+  {
+    id: "mc-12",
+    name: "THE MIDNIGHT SEOUL ROLL",
+    category: "Starters",
     price: 189,
-    protein: 20,
+    variants: {
+      veg: 189,
+      nonVeg: 199
+    },
+    dietaryType: "both",
+    isBothVegNonVeg: true
+  },
+
+  // SALADS AND SANDWICH (Page 2 of PDF)
+  {
+    id: "ss-1",
+    name: "PITA HEATWAVE SALAD",
     category: "Sandwiches & Salads",
-    image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80",
+    price: 90,
+    sizes: {
+      M: 90,
+      L: 149
+    },
+    dietaryType: "veg",
+    isVegetarian: true
   },
   {
-    id: "ss7",
-    name: "Scarlet Hit Parm Royal",
-    description: "Description coming soon.",
-    price: 240,
-    protein: 20,
+    id: "ss-2",
+    name: "SPICY TEMPTATION SANDWICH",
     category: "Sandwiches & Salads",
-    image: "https://images.unsplash.com/photo-1619096252214-ef06c45683e3?auto=format&fit=crop&w=800&q=80",
+    price: 80,
+    sizes: {
+      M: 80,
+      L: 129
+    },
+    dietaryType: "veg",
+    isVegetarian: true
+  },
+  {
+    id: "ss-3",
+    name: "MELTED MUSCLE SALAD (GRILLED)",
+    category: "Sandwiches & Salads",
+    price: 99,
+    sizes: {
+      M: 99,
+      L: 139
+    },
+    dietaryType: "non-veg",
+    isVegetarian: false
+  },
+  {
+    id: "ss-4",
+    name: "SMOKEY PEPPER CRUSH",
+    category: "Sandwiches & Salads",
+    price: 79,
+    sizes: {
+      M: 79,
+      L: 129
+    },
+    dietaryType: "veg",
+    isVegetarian: true
+  },
+  {
+    id: "ss-5",
+    name: "THE CORN AFFAIR",
+    category: "Sandwiches & Salads",
+    price: 79,
+    sizes: {
+      M: 79,
+      L: 129
+    },
+    dietaryType: "veg",
+    isVegetarian: true
+  },
+
+  // PROTEIN SHAKES (Page 2 of PDF)
+  {
+    id: "ps-1",
+    name: "GUILTY PLEASURE MOCHA",
+    category: "Protein Shakes",
+    price: 120,
+    protein: 35,
+    dietaryType: "veg",
+    isVegetarian: true
+  },
+
+  // HOT BEVERAGES (Page 2 of PDF)
+  {
+    id: "hb-1",
+    name: "BOMBAY CHAI",
+    category: "Hot Beverages",
+    price: 15,
+    dietaryType: "veg",
+    isVegetarian: true
+  },
+  {
+    id: "hb-2",
+    name: "COFFEE",
+    category: "Hot Beverages",
+    price: 20,
+    dietaryType: "veg",
+    isVegetarian: true
+  },
+  {
+    id: "hb-3",
+    name: "EXPRESSO SHOT",
+    category: "Hot Beverages",
+    price: 15,
+    dietaryType: "veg",
+    isVegetarian: true
   }
 ];

@@ -1,8 +1,8 @@
-
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { menuItems } from '../data/mockData';
+import { CelestialFoodPlaceholder } from '../components/CelestialFoodPlaceholder';
 
 export const Home = () => {
   const signatureItems = menuItems.filter(item => item.isSignature).slice(0, 3);
@@ -89,17 +89,32 @@ export const Home = () => {
                 style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
               >
                 <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
-                  <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform var(--transition-slow)' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                  {item.image ? (
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform var(--transition-slow)' }} 
+                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} 
+                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'} 
+                    />
+                  ) : (
+                    <CelestialFoodPlaceholder 
+                      category={item.category} 
+                      name={item.name} 
+                      isSignature={item.isSignature}
+                    />
+                  )}
                 </div>
                 <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                    <h3 className="font-serif" style={{ fontSize: '1.25rem' }}>{item.name}</h3>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem', gap: '0.5rem' }}>
+                    <h3 className="font-serif" style={{ fontSize: '1.15rem' }}>{item.name}</h3>
                     <span style={{ color: 'var(--accent-gold)', fontWeight: 'bold' }}>₹{item.price}</span>
                   </div>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1.5rem', flex: 1 }}>{item.description}</p>
-                  <Link to="/menu" className="btn-secondary" style={{ width: '100%', textAlign: 'center', textDecoration: 'none' }}>
-                    View Details
-                  </Link>
+                  <div style={{ marginTop: 'auto', paddingTop: '1.5rem' }}>
+                    <Link to="/menu" className="btn-secondary" style={{ width: '100%', textAlign: 'center', textDecoration: 'none', display: 'block' }}>
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
